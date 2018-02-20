@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreateCell : MonoBehaviour {
 
-	//Cell Class
+    //Cell Class
     public class Cell
     {
         private int cell_Row;
@@ -13,13 +13,101 @@ public class CreateCell : MonoBehaviour {
         private Cell neighbour_South;
         private Cell neighbour_East;
         private Cell neighbour_West;
+        private List<Cell> linkedCellsList;
 
-        public Cell()
+
+        //Neighbours Getters and Setters
+        //North
+        //Set North neighbour
+        public void setneighbourNorth(Cell nNorth)
         {
-            cell_Row = 1;
-            cell_Column = 1;
+            neighbour_North = nNorth;
+        }
+        //Get North neighbour
+        public Cell getNeighbourNorth()
+        {
+            return neighbour_North;
+        }
+        //South
+        public void setneighbourSouth(Cell nSouth)
+        {
+            neighbour_South = nSouth;
+        }
+        public Cell getNeighbourSouth()
+        {
+            return neighbour_South;
+        }
+        //East
+        public void setneighbourEast(Cell nEast)
+        {
+            neighbour_East = nEast;
+        }
+        public Cell getNeighbourEast()
+        {
+            return neighbour_East;
+        }
+        //West
+        public void setneighbourWest(Cell nWest)
+        {
+            neighbour_West = nWest;
+        }
+        public Cell getNeighbourWest()
+        {
+            return neighbour_West;
         }
 
+        //Get Cell Coordonates
+        public int getCellRow()
+        {
+            return cell_Row;
+        }
+        public int getCellColumn()
+        {
+            return cell_Column;
+        }
+
+
+        // Sets all neighbours at once
+        public void setAllNeighbours(Cell N_Cell, Cell S_Cell, Cell E_Cell, Cell W_Cell)
+        {
+            neighbour_East = E_Cell;
+            neighbour_North = N_Cell;
+            neighbour_South = S_Cell;
+            neighbour_West = W_Cell;
+        }
+
+        //Empty constructor
+        public Cell()
+        {
+ 
+        }
+        //Cell coordinates constructor
+        public Cell(int cellRow, int cellColumn)
+        {
+            cell_Row = cellRow;
+            cell_Column = cellColumn;
+        }
+ 
+        //Link Cells together
+        public void linkCell( Cell currentCell, Cell linkedCell, bool bound)
+        {  
+            linkedCellsList.Add(linkedCell);
+            if(bound == true)
+            { 
+                linkedCell.linkCell(linkedCell,currentCell, false);
+            }  
+        }
+        //Unlink the Cells
+        public void unlinkCell(Cell currentCell, Cell unlinkedCell, bool unbound)
+        {
+            linkedCellsList.Remove(unlinkedCell);
+            if(unbound == true)
+            {
+                unlinkedCell.unlinkCell(unlinkedCell,currentCell,false);
+            }
+        }  
+
+      
     }
     
 
