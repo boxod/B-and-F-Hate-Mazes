@@ -10,6 +10,7 @@ public class CreateGrid : MonoBehaviour {
         List<Cell> allCells = new List<Cell>();
         private int number_Rows;
         private int number_Columns;
+        Cell[,] cellArray;
 
 
         public Grid()
@@ -39,7 +40,7 @@ public class CreateGrid : MonoBehaviour {
         {
             foreach(Cell i in allCells)
             {
-               
+                
             }
         }
     
