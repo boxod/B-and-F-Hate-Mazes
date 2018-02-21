@@ -13,7 +13,7 @@ public class CreateCell : MonoBehaviour {
         private Cell neighbour_South;
         private Cell neighbour_East;
         private Cell neighbour_West;
-        private List<Cell> linkedCellsList;
+        private List<Cell> linkedCellsList = new List<Cell>();
 
 
         //Neighbours Getters and Setters
@@ -56,6 +56,12 @@ public class CreateCell : MonoBehaviour {
             return neighbour_West;
         }
 
+        //Get linked Cells list
+        public List<Cell> getLinkedList()
+        {
+            return linkedCellsList;
+        }
+
         //Get Cell Coordonates
         public int getCellRow()
         {
@@ -90,12 +96,25 @@ public class CreateCell : MonoBehaviour {
  
         //Link Cells together
         public void linkCell( Cell currentCell, Cell linkedCell, bool bound)
-        {  
-            linkedCellsList.Add(linkedCell);
-            if(bound == true)
-            { 
-                linkedCell.linkCell(linkedCell,currentCell, false);
-            }  
+        {
+
+            //Debug.Log("currentCell r " + currentCell.getCellRow() + " currCell c " + currentCell.getCellColumn());
+           // Debug.Log("linkedCell r " + linkedCell.getCellRow() + " lnikedCell c " + linkedCell.getCellColumn());
+
+            try
+            {
+                linkedCellsList.Add(linkedCell);
+                if (bound == true)
+                {
+                    linkedCell.linkCell(linkedCell, currentCell, false);
+                }
+
+            }
+            catch(System.Exception e)
+            {
+                Debug.Log("Null Exception linkCell: " + e.Message);
+            }
+            
         }
         //Unlink the Cells
         public void unlinkCell(Cell currentCell, Cell unlinkedCell, bool unbound)
