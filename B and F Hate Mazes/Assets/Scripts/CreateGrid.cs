@@ -26,6 +26,11 @@ public class CreateGrid : MonoBehaviour {
 
         }
 
+        public List<Cell> getCellsList()
+        {
+            return allCells;
+        }
+
         public void createGrid()
         {
             for(int i = 0;i<number_Rows;i++)

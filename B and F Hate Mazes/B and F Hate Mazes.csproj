@@ -294,6 +294,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BinaryTree.cs" />
+    <Compile Include="Assets\Scripts\BuildMaze.cs" />
     <Compile Include="Assets\Scripts\CreateCell.cs" />
     <Compile Include="Assets\Scripts\CreateGrid.cs" />
   </ItemGroup>
