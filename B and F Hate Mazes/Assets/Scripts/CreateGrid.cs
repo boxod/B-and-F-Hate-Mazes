@@ -40,7 +40,50 @@ public class CreateGrid : MonoBehaviour {
         {
             foreach(Cell i in allCells)
             {
-                
+                foreach(Cell j in allCells)
+                {
+                    // Set neighbour North
+                    if(j.getCellColumn() == i.getCellColumn() && i.getCellRow()-1 == j.getCellRow())
+                    {
+                        i.setneighbourNorth(j);
+                        break;
+                    }
+                    else
+                    {
+                        i.setneighbourNorth(null);
+                    }
+                    // Set neighbour South
+                    if (j.getCellColumn() == i.getCellColumn() && i.getCellRow()+1 == j.getCellRow())
+                    {
+                        i.setneighbourSouth(j);
+                        break;
+                    }
+                    else
+                    {
+                        i.setneighbourSouth(null);
+                    }
+                    // Set neighbour West
+                    if (j.getCellColumn() == i.getCellColumn()-1 && i.getCellRow() == j.getCellRow())
+                    {
+                        i.setneighbourWest(j);
+                        break;
+                    }
+                    else
+                    {
+                        i.setneighbourWest(null);
+                    }
+                    // Set neighbour East
+                    if (j.getCellColumn() == i.getCellColumn()+1 && i.getCellRow() == j.getCellRow())
+                    {
+                        i.setneighbourEast(j);
+                        break;
+                    }
+                    else
+                    {
+                        i.setneighbourEast(null);
+                    }
+
+                }
             }
         }
     
