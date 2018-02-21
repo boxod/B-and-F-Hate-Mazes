@@ -6,12 +6,19 @@ public class BinaryTree : MonoBehaviour {
 
     // Use this for initialization
     CreateGrid.Grid newMaze = new CreateGrid.Grid(4,4);
-
+    
 
     void Start()
     {
+        binaryArray();
+
+    }
+
+    // Load Binary tree algorithm using a List
+    public void binaryList ()
+    {
         newMaze.createGrid();
-        newMaze.configureCells();
+        newMaze.configureCellsList();
 
         foreach (CreateCell.Cell i in newMaze.getCellsList())
         {
@@ -47,9 +54,13 @@ public class BinaryTree : MonoBehaviour {
 
             ct++;
         }
-
     }
 
+    public void binaryArray()
+    {
+        newMaze.createGrid();
+        newMaze.configureCellsArray();
+    }
 
 	// Update is called once per frame
 	void Update () {

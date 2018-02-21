@@ -7,7 +7,7 @@ public class CreateGrid : MonoBehaviour {
     //Grid Class inherits Cell Class
     public class Grid : CreateCell
     {
-        List<Cell> allCells = new List<Cell>();
+        List<Cell> allCellsList = new List<Cell>();
         private int number_Rows;
         private int number_Columns;
         Cell[,] cellArray;
@@ -21,14 +21,21 @@ public class CreateGrid : MonoBehaviour {
         {
             number_Rows = nRows;
             number_Columns = nColumns;
+            cellArray = new Cell[nRows, nColumns];
             createGrid();
-            configureCells();
+            configureCellsList();
+            configureCellsArray();
 
         }
 
         public List<Cell> getCellsList()
         {
-            return allCells;
+            return allCellsList;
+        }
+
+        public Cell[,] getCellArray()
+        {
+            return cellArray;
         }
 
         public void createGrid()
@@ -37,15 +44,15 @@ public class CreateGrid : MonoBehaviour {
                 for(int j = 0;j<number_Columns;j++)
                 {
                     Cell newCell = new Cell(i,j);
-                    allCells.Add(newCell);
+                    cellArray[i, j] = newCell;
                 }
         }
 
-        public void configureCells()
+        public void configureCellsList()
         {
-            foreach(Cell i in allCells)
+            foreach(Cell i in allCellsList)
             {
-                foreach(Cell j in allCells)
+                foreach(Cell j in allCellsList)
                 {
                     // Set neighbour North
                     if(j.getCellColumn() == i.getCellColumn() && i.getCellRow()-1 == j.getCellRow())
@@ -91,8 +98,56 @@ public class CreateGrid : MonoBehaviour {
                 }
             }
         }
-    
 
+        public void configureCellsArray()
+        {
+            for(int i = 0; i<number_Rows;i++)
+            {
+                for(int j = 0;j<number_Columns; j++)
+                {
+
+                    // Set Neighbour North
+                    if(cellArray[i-1,j] != null)
+                    {
+                        cellArray[i, j].setneighbourNorth(cellArray[i - 1,j]);
+                    }
+                    else if(cellArray[i - 1, j] == null)
+                    {
+                        cellArray[i - 1, j] = null;
+                    }
+
+                    // Set Neighbour South
+                    if (cellArray[i+1, j] != null)
+                    {
+                        cellArray[i, j].setneighbourSouth(cellArray[i + 1, j]);
+                    }
+                    else if (cellArray[i + 1, j] == null)
+                    {
+                        cellArray[i - 1, j] = null;
+                    }
+
+                    // Set Neighbour West
+                    if (cellArray[i, j - 1] != null)
+                    {
+                        cellArray[i, j].setneighbourWest(cellArray[i, j-1]);
+                    }
+                    else if (cellArray[i, j - 1] == null)
+                    {
+                        cellArray[i, j - 1] = null;
+                    }
+
+                    // Set Neighbour East
+                    if (cellArray[i, j + 1] != null)
+                    {
+                        cellArray[i, j].setneighbourEast(cellArray[i,j + 1]);
+                    }
+                    else if (cellArray[i, j + 1] == null)
+                    {
+                        cellArray[i , j + 1] = null;
+                    }
+                }
+            }
+        }
     }
     
 
@@ -107,7 +162,7 @@ public class CreateGrid : MonoBehaviour {
     void Start()
     {
 
-        GameObject Floor = Instantiate(Resources.Load("Floor", typeof(GameObject))) as GameObject;
+        //GameObject Floor = Instantiate(Resources.Load("Floor", typeof(GameObject))) as GameObject;
         
         
     }
