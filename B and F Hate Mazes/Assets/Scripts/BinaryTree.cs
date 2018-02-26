@@ -5,20 +5,42 @@ using UnityEngine;
 public class BinaryTree : MonoBehaviour {
 
     // Use this for initialization
-    CreateGrid.Grid newMaze = new CreateGrid.Grid(4,4);
-    
 
-    void Start()
+    private int Number_Rows;
+    private int Number_Columns;
+    CreateGrid.Grid newMaze;
+    CreateCell.Cell[,] myArr;
+
+    public BinaryTree(int nRows, int nColumns)
     {
-        binaryArray();
-
+        Number_Rows = nRows;
+        Number_Columns = nColumns;
     }
+
+    //void Start()
+    //{
+    //    try
+    //    {
+    //        newMaze = new CreateGrid.Grid(Number_Rows, Number_Columns);
+    //        binaryArray();
+    //        //binaryList();
+
+    //    }
+    //    catch (System.Exception e)
+    //    {
+    //        Debug.Log("Error when creating binary: " + e.Message);
+    //    }        
+    //}
 
     // Load Binary tree algorithm using a List
     public void binaryList ()
     {
         newMaze.createGrid();
         newMaze.configureCellsList();
+        
+
+        int size = newMaze.getCellsList().Count;
+        Debug.Log("Random please: " + size);
 
         foreach (CreateCell.Cell i in newMaze.getCellsList())
         {
@@ -39,6 +61,7 @@ public class BinaryTree : MonoBehaviour {
             {
                 i.linkCell(i, i.getNeighbourNorth(), true);
             }
+            Debug.Log("Random ");
         }
         int ct = 0;
         foreach (CreateCell.Cell i in newMaze.getCellsList())
@@ -56,11 +79,42 @@ public class BinaryTree : MonoBehaviour {
         }
     }
 
-    public void binaryArray()
+    public CreateCell.Cell[,] returnBinaryArray()
     {
-        newMaze.createGrid();
+
+        newMaze = new CreateGrid.Grid(Number_Rows,Number_Columns);
         newMaze.configureCellsArray();
+        myArr =  newMaze.getCellArray();
+
+        //Debug.Log("Maze Size: " + myArr.Length);
+        for (int i = 0;i<Number_Rows;i++)
+        {
+            for(int j = Number_Columns-1;j>=0;j--)
+            {               
+                float rndm = Random.Range(0, 10);
+                //Debug.Log("Random = " + rndm);
+                if (rndm < 5 && newMaze.getCellFromArray(i,j).getNeighbourNorth() != null)
+                {
+                    newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourNorth(), true);
+                }
+                else if (newMaze.getCellFromArray(i, j).getNeighbourNorth() == null && newMaze.getCellFromArray(i, j).getNeighbourEast() != null)
+                {
+                    newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourEast(), true);
+                }
+                if (rndm >= 5 && newMaze.getCellFromArray(i, j).getNeighbourEast() != null)
+                {
+                    newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourEast(), true);
+                }
+                else if (newMaze.getCellFromArray(i, j).getNeighbourEast() == null && newMaze.getCellFromArray(i, j).getNeighbourNorth() != null)
+                {
+                    newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourNorth(), true);
+                }
+            }
+        }
+        return myArr;
+
     }
+
 
 	// Update is called once per frame
 	void Update () {

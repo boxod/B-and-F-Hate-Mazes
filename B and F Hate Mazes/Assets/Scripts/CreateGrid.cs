@@ -23,8 +23,8 @@ public class CreateGrid : MonoBehaviour {
             number_Columns = nColumns;
             cellArray = new Cell[nRows, nColumns];
             createGrid();
-            configureCellsList();
-            configureCellsArray();
+            //configureCellsList();
+            //configureCellsArray();
 
         }
 
@@ -36,6 +36,19 @@ public class CreateGrid : MonoBehaviour {
         public Cell[,] getCellArray()
         {
             return cellArray;
+        }
+
+        public Cell getCellFromArray(int cRow, int cColumn)
+        {
+            Cell rCell = cellArray[cRow,cColumn];
+            if (rCell != null)
+            {
+                return rCell;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void createGrid()
@@ -105,46 +118,61 @@ public class CreateGrid : MonoBehaviour {
             {
                 for(int j = 0;j<number_Columns; j++)
                 {
-
-                    // Set Neighbour North
-                    if(cellArray[i-1,j] != null)
+                    //try
+                    //{
+                    if (i != 0)
                     {
-                        cellArray[i, j].setneighbourNorth(cellArray[i - 1,j]);
+                        // Set Neighbour North
+                        if (cellArray[i - 1, j] != null)
+                        {
+                            cellArray[i, j].setneighbourNorth(cellArray[i - 1, j]);
+                        }
+                        else if (cellArray[i - 1, j] == null)
+                        {
+                            cellArray[i - 1, j] = null;
+                        }
                     }
-                    else if(cellArray[i - 1, j] == null)
+                    if (i != number_Rows - 1)
                     {
-                        cellArray[i - 1, j] = null;
+                        // Set Neighbour South
+                        if (cellArray[i + 1, j] != null)
+                        {
+                            cellArray[i, j].setneighbourSouth(cellArray[i + 1, j]);
+                        }
+                        else if (cellArray[i + 1, j] == null)
+                        {
+                            cellArray[i - 1, j] = null;
+                        }
                     }
-
-                    // Set Neighbour South
-                    if (cellArray[i+1, j] != null)
+                    if (j != 0)
                     {
-                        cellArray[i, j].setneighbourSouth(cellArray[i + 1, j]);
+                        // Set Neighbour West
+                        if (cellArray[i, j - 1] != null)
+                        {
+                            cellArray[i, j].setneighbourWest(cellArray[i, j - 1]);
+                        }
+                        else if (cellArray[i, j - 1] == null)
+                        {
+                            cellArray[i, j - 1] = null;
+                        }
                     }
-                    else if (cellArray[i + 1, j] == null)
+                    if (j != number_Columns - 1)
                     {
-                        cellArray[i - 1, j] = null;
+                        // Set Neighbour East
+                        if (cellArray[i, j + 1] != null)
+                        {
+                            cellArray[i, j].setneighbourEast(cellArray[i, j + 1]);
+                        }
+                        else if (cellArray[i, j + 1] == null)
+                        {
+                            cellArray[i, j + 1] = null;
+                        }
                     }
-
-                    // Set Neighbour West
-                    if (cellArray[i, j - 1] != null)
-                    {
-                        cellArray[i, j].setneighbourWest(cellArray[i, j-1]);
-                    }
-                    else if (cellArray[i, j - 1] == null)
-                    {
-                        cellArray[i, j - 1] = null;
-                    }
-
-                    // Set Neighbour East
-                    if (cellArray[i, j + 1] != null)
-                    {
-                        cellArray[i, j].setneighbourEast(cellArray[i,j + 1]);
-                    }
-                    else if (cellArray[i, j + 1] == null)
-                    {
-                        cellArray[i , j + 1] = null;
-                    }
+                    //}
+                    //catch(System.Exception e)
+                    //{
+                    //    Debug.Log("Array error: " + e.Message);
+                    //}
                 }
             }
         }
@@ -162,7 +190,7 @@ public class CreateGrid : MonoBehaviour {
     void Start()
     {
 
-        //GameObject Floor = Instantiate(Resources.Load("Floor", typeof(GameObject))) as GameObject;
+        
         
         
     }
