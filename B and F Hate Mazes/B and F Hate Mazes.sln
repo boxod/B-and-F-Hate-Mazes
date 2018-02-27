@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B and F Hate Mazes", "B and F Hate Mazes.csproj", "{3E7F662D-7BAD-0ADA-9BCC-BFDE95B8255F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B and F Hate Mazes.Plugins", "B and F Hate Mazes.Plugins.csproj", "{B461C9B1-E8C9-1595-6A58-4944F11F8BC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B and F Hate Mazes.Editor.Plugins", "B and F Hate Mazes.Editor.Plugins.csproj", "{B7206974-AECD-9282-A0EB-2E8BCFCA2A97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{3E7F662D-7BAD-0ADA-9BCC-BFDE95B8255F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E7F662D-7BAD-0ADA-9BCC-BFDE95B8255F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E7F662D-7BAD-0ADA-9BCC-BFDE95B8255F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B461C9B1-E8C9-1595-6A58-4944F11F8BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B461C9B1-E8C9-1595-6A58-4944F11F8BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B461C9B1-E8C9-1595-6A58-4944F11F8BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B461C9B1-E8C9-1595-6A58-4944F11F8BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7206974-AECD-9282-A0EB-2E8BCFCA2A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7206974-AECD-9282-A0EB-2E8BCFCA2A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7206974-AECD-9282-A0EB-2E8BCFCA2A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7206974-AECD-9282-A0EB-2E8BCFCA2A97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -126,6 +126,22 @@ public class CreateCell : MonoBehaviour {
             }
         }  
 
+        public bool isLinked(Cell C)
+        {
+            bool link = false;
+            foreach(Cell i in linkedCellsList)
+            {
+                if (C != null && i != null)
+                {
+                    if (i.getCellRow() == C.getCellRow() && i.getCellColumn() == C.getCellColumn())
+                    {
+                        link = true;
+                    }
+                }
+            }
+            return link;
+        }
+
       
     }
     
