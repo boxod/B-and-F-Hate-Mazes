@@ -17,23 +17,8 @@ public class BinaryTree : MonoBehaviour {
         Number_Columns = nColumns;
     }
 
-    //void Start()
-    //{
-    //    try
-    //    {
-    //        newMaze = new CreateGrid.Grid(Number_Rows, Number_Columns);
-    //        binaryArray();
-    //        //binaryList();
-
-    //    }
-    //    catch (System.Exception e)
-    //    {
-    //        Debug.Log("Error when creating binary: " + e.Message);
-    //    }        
-    //}
-
     // Load Binary tree algorithm using a List
-    public void binaryList ()
+    public void returnBinaryList ()
     {
         newMaze.createGrid();
         newMaze.configureCellsList();
@@ -87,30 +72,11 @@ public class BinaryTree : MonoBehaviour {
         myArr =  newMaze.getCellArray();
 
         //Debug.Log("Maze Size: " + myArr.Length);
-        for (int i = Number_Rows-1; i>0;i--)
+        for (int i = Number_Rows-1; i>=0;i--)
         {
             for(int j = 0;j<Number_Columns;j++)
             {
                 float rndm = Random.Range(0, 9);
-                //Debug.Log("CC Row: " + newMaze.getCellFromArray(i, j).getCellRow() + " Column: " + newMaze.getCellFromArray(i, j).getCellColumn());
-                //Debug.Log("Random = " + rndm);
-
-                //if(newMaze.getCellFromArray(i, j).getNeighbourNorth() == null)
-                //{
-                //    Debug.Log("North Cell is null");
-                //}
-                //else
-                //{
-                //    Debug.Log("North Cell is NOT null");
-                //}
-                //if (newMaze.getCellFromArray(i, j).getNeighbourEast() == null)
-                //{
-                //    Debug.Log("East Cell is null");
-                //}
-                //else
-                //{
-                //    Debug.Log("East Cell is NOT null");
-                //}
 
                 if (rndm <5)
                 {
@@ -118,7 +84,7 @@ public class BinaryTree : MonoBehaviour {
                     {
                         newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourNorth(), true);
                     }
-                    else if(newMaze.getCellFromArray(i, j).getNeighbourNorth() == null && newMaze.getCellFromArray(i, j).getNeighbourEast() != null)
+                    else if (newMaze.getCellFromArray(i, j).getNeighbourNorth() == null && newMaze.getCellFromArray(i, j).getNeighbourEast() != null)
                     {
                         newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourEast(), true);
                     }
@@ -128,31 +94,35 @@ public class BinaryTree : MonoBehaviour {
                     if(newMaze.getCellFromArray(i, j).getNeighbourEast() != null)
                     {
                         newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i,j), newMaze.getCellFromArray(i, j).getNeighbourEast(), true);
-                    }
-                    else if(newMaze.getCellFromArray(i, j).getNeighbourNorth() != null && newMaze.getCellFromArray(i, j).getNeighbourEast() == null)
+                    } else if (newMaze.getCellFromArray(i, j).getNeighbourEast() == null && newMaze.getCellFromArray(i, j).getNeighbourNorth() != null)
                     {
                         newMaze.getCellFromArray(i, j).linkCell(newMaze.getCellFromArray(i, j), newMaze.getCellFromArray(i, j).getNeighbourNorth(), true);
                     }
                 }
 
+
+                
+
             }
         }
 
-        //for (int i = Number_Rows - 1; i >= 0; i--)
-        //{
-        //    for (int j = 0; j < Number_Columns; j++)
-        //    {
-        //        Debug.Log("CC Row: " + newMaze.getCellFromArray(i, j).getCellRow() + " Column: " + newMaze.getCellFromArray(i, j).getCellColumn());
-        //        foreach (CreateCell.Cell c in newMaze.getCellFromArray(i, j).getLinkedList())
-        //        {
-        //            Debug.Log("Linked Cell: Row: " + c.getCellRow() + " Column: " + c.getCellColumn());
-        //        }
-        //    }
-        //}
+        for (int i = Number_Rows - 1; i >= 0; i--)
+        {
+            for (int j = 0; j < Number_Columns; j++)
+            {
+                Debug.Log("CC Row: " + newMaze.getCellFromArray(i, j).getCellRow() + " Column: " + newMaze.getCellFromArray(i, j).getCellColumn());
+                foreach (CreateCell.Cell c in newMaze.getCellFromArray(i, j).getLinkedList())
+                {
+                    Debug.Log("Linked Cell: Row: " + c.getCellRow() + " Column: " + c.getCellColumn());
+                }
+            }
+        }
 
         return myArr;
 
     }
+
+    
 
 
 	// Update is called once per frame
