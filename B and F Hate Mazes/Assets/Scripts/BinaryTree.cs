@@ -106,17 +106,17 @@ public class BinaryTree : MonoBehaviour {
             }
         }
 
-        for (int i = Number_Rows - 1; i >= 0; i--)
-        {
-            for (int j = 0; j < Number_Columns; j++)
-            {
-                Debug.Log("CC Row: " + newMaze.getCellFromArray(i, j).getCellRow() + " Column: " + newMaze.getCellFromArray(i, j).getCellColumn());
-                foreach (CreateCell.Cell c in newMaze.getCellFromArray(i, j).getLinkedList())
-                {
-                    Debug.Log("Linked Cell: Row: " + c.getCellRow() + " Column: " + c.getCellColumn());
-                }
-            }
-        }
+        //for (int i = Number_Rows - 1; i >= 0; i--)
+        //{
+        //    for (int j = 0; j < Number_Columns; j++)
+        //    {
+        //        Debug.Log("CC Row: " + newMaze.getCellFromArray(i, j).getCellRow() + " Column: " + newMaze.getCellFromArray(i, j).getCellColumn());
+        //        foreach (CreateCell.Cell c in newMaze.getCellFromArray(i, j).getLinkedList())
+        //        {
+        //            Debug.Log("Linked Cell: Row: " + c.getCellRow() + " Column: " + c.getCellColumn());
+        //        }
+        //    }
+        //}
 
         return myArr;
 
