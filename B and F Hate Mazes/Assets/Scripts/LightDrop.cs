@@ -25,9 +25,11 @@ public class LightDrop : MonoBehaviour {
         return lightDropCharges;
     }
 
-    public void placeLightCharge()
+    public void placeLightCharge(float xCoordinate, float yCoordinate, float zCoordinate, Animation lightDropFall)
     {
-
+        Vector3 lightPoz = new Vector3(xCoordinate,yCoordinate,zCoordinate);
+        Quaternion lightRoatation = new Quaternion(0,0,0,0);
+        Instantiate(LightDropPrefab, lightPoz, lightRoatation);        
     }
     public void removeLightCharge()
     {

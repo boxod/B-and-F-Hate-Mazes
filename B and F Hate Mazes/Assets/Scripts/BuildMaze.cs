@@ -45,7 +45,8 @@ public class BuildMaze : MonoBehaviour {
     public float xStartingPoint = 0.0f;
     public float zStartingPoint = 0.0f;
     public float yStartingPoint = 0.0f;
-
+    [SerializeField]
+    private Transform pos;
     
 
    
@@ -82,8 +83,6 @@ public class BuildMaze : MonoBehaviour {
     public void placePlayer()
     {
         int columnOrRow = Random.Range(0, 11);
-
-
 
         int posX = Random.Range(0,Rows-1);
         int posZ = Random.Range(0,Columns-1);
@@ -122,7 +121,8 @@ public class BuildMaze : MonoBehaviour {
             {
                 
                 Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + wallPrefabLength + betweenPrefabLength) * i) * -1, yStartingPoint + betweenIsHigher, (zStartingPoint + (2 * distanceBetweenObjects + wallPrefabLength + betweenPrefabLength) * j) * -1);
-                Instantiate(betweenWallsPrefab, pos, Quaternion.identity);
+                GameObject aux = Instantiate(betweenWallsPrefab, pos, Quaternion.identity);
+                aux.transform.parent = transform;
                 if (i < Rows && j<Columns)
                 { 
                     arrayOfCellsCentre[i, j] = new centreOfCells((xStartingPoint + (2 * distanceBetweenObjects + wallPrefabLength + betweenPrefabLength) * i + (2 * distanceBetweenObjects + wallPrefabLength + betweenPrefabLength) / 2) * -1, yStartingPoint + betweenIsHigher, (zStartingPoint + (2 * distanceBetweenObjects + wallPrefabLength + betweenPrefabLength) * j + (2 * distanceBetweenObjects + wallPrefabLength + betweenPrefabLength) / 2) * -1);
@@ -130,7 +130,6 @@ public class BuildMaze : MonoBehaviour {
             }
         }
 
-        
 
         for (int i = 0; i < Rows; i++)
         {
@@ -140,24 +139,28 @@ public class BuildMaze : MonoBehaviour {
                 if (i == 0)
                 {
                     Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * i) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * j) * -1);
-                    Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    GameObject aux = Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    aux.transform.parent = transform;
                 }
                 if (j == 0)
                 {                  
                     Vector3 pos = new Vector3((xStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * i) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * j) * -1);
-                    Instantiate(xWallPrefab, pos, Quaternion.identity);
+                    GameObject aux = Instantiate(xWallPrefab, pos, Quaternion.identity);
+                    aux.transform.parent = transform;
 
                 }
                 if (j == Columns - 1)
                 {
-                        Vector3 pos = new Vector3((xStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * i) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * (j+ 1)) * -1);
+                    Vector3 pos = new Vector3((xStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * i) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * (j + 1)) * -1);
 
-                        Instantiate(xWallPrefab, pos, Quaternion.identity);
+                    GameObject aux = Instantiate(xWallPrefab, pos, Quaternion.identity);
+                    aux.transform.parent = transform;
                 }
                 if (i == Rows - 1)
                 {
                     Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * (i + 1)) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * j) * -1);
-                    Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    GameObject aux = Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    aux.transform.parent = transform;
                 }
 
             }
@@ -168,12 +171,14 @@ public class BuildMaze : MonoBehaviour {
         {
             for (int j = 0; j < Columns; j++)
             {
+                GameObject aux = null;
                 if (MazeArray[i, j].getNeighbourEast() != null && MazeArray[i, j].isLinked(MazeArray[i, j].getNeighbourEast()) == false)
                 {
                     int nEastRow = MazeArray[i, j].getNeighbourEast().getCellRow();
                     int nEastColumn = MazeArray[i, j].getNeighbourEast().getCellColumn();
                     Vector3 pos = new Vector3((xStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * nEastRow) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * nEastColumn) * -1);
-                    Instantiate(xWallPrefab, pos, Quaternion.identity);
+                    aux = Instantiate(xWallPrefab, pos, Quaternion.identity);
+                    aux.transform.parent = transform;
                 }
 
                 if (MazeArray[i, j].getNeighbourSouth() != null && MazeArray[i, j].isLinked(MazeArray[i, j].getNeighbourSouth()) == false)
@@ -181,8 +186,10 @@ public class BuildMaze : MonoBehaviour {
                     int nSouthRow = MazeArray[i, j].getNeighbourSouth().getCellRow();
                     int nSouthColumn = MazeArray[i, j].getNeighbourSouth().getCellColumn();
                     Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * nSouthRow) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * nSouthColumn) * -1);
-                    Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    aux = Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    aux.transform.parent = transform;
                 }
+                   
             }
         }
 
