@@ -201,8 +201,44 @@ Prefab:
         type: 2}
       propertyPath: PlayerPrefab
       value: 
-      objectReference: {fileID: 1525619199596124, guid: 43b7892adbf435e42a54ded64110f1c0,
+      objectReference: {fileID: 1383569770584304, guid: f27c7b06ba767774a89144cb2bfd54ba,
         type: 2}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: FloorPrefab
+      value: 
+      objectReference: {fileID: 1177265172795922, guid: cc375bb094fa0bb4a980ead6a50eb578,
+        type: 2}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: zStartingPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: xStartingPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: yStartingPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MinNumRows
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MaxNumRows
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MaxNumColumns
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced8496b260e675498042edf8911f005, type: 2}
   m_IsPrefabParent: 0

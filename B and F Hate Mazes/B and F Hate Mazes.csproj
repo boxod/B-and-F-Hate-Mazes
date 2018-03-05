@@ -300,12 +300,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\CharacterTest\Supercyan Character Pack Free Sample\Scripts\CameraLogic.cs" />
+    <Compile Include="Assets\Resources\CharacterTest\Supercyan Character Pack Free Sample\Scripts\Demo.cs" />
+    <Compile Include="Assets\Resources\CharacterTest\Supercyan Character Pack Free Sample\Scripts\SimpleCharacterControl.cs" />
     <Compile Include="Assets\Scripts\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\BuildMaze.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\CreateCell.cs" />
     <Compile Include="Assets\Scripts\CreateGrid.cs" />
-    <Compile Include="Assets\Scripts\GameScenePC.cs" />
     <Compile Include="Assets\Scripts\LightDrop.cs" />
   </ItemGroup>
   <ItemGroup>
