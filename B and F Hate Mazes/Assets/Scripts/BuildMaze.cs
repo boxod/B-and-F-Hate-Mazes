@@ -25,6 +25,10 @@ public class BuildMaze : MonoBehaviour {
     private int Columns;
     private int Rows;
     private centreOfCells[,] arrayOfCellsCentre;
+    private List<LightDrop> lightDrops = new List<LightDrop>();
+    private int playerStartX, playerStartZ;
+    private int exitPosX, exitPozZ;
+    
 
 
     // Initialize all public Variables
@@ -37,6 +41,7 @@ public class BuildMaze : MonoBehaviour {
     public GameObject PlayerPrefab;
     public GameObject LightDropPrefab;
     public GameObject FloorPrefab;
+    public GameObject ExitPrefab;
     public int MinNumRows = 4;
     public int MaxNumRows = 8;
     public int MinNumColumns = 4;
@@ -45,9 +50,7 @@ public class BuildMaze : MonoBehaviour {
     public float xStartingPoint = 0.0f;
     public float zStartingPoint = 0.0f;
     public float yStartingPoint = 0.0f;
-    [SerializeField]
-    private Transform pos;
-    
+   
 
    
 
@@ -60,12 +63,6 @@ public class BuildMaze : MonoBehaviour {
         Columns = Random.Range(MinNumColumns,MaxNumColumns);
 
         CreateMazeWalls();
-
-        LightDrop lightDrop = new LightDrop(PlayerPrefab, LightDropPrefab);
-        lightDrop.setNumberLightDrops(Rows,Columns);
-
-
-
 
     }
 
@@ -82,13 +79,14 @@ public class BuildMaze : MonoBehaviour {
 
     public void placePlayer()
     {
-        int columnOrRow = Random.Range(0, 11);
+        //int columnOrRow = Random.Range(0, 11);
 
-        int posX = Random.Range(0,Rows-1);
-        int posZ = Random.Range(0,Columns-1);
-        Vector3 playerPosition = new Vector3(arrayOfCellsCentre[posX,posZ].cellXCoordinate, arrayOfCellsCentre[posX, posZ].cellYCoordinate,arrayOfCellsCentre[posX,posZ].cellZCoordinate);
+        playerStartX = Random.Range(0,Rows-1);
+        playerStartZ = Random.Range(0,Columns-1);
+        Vector3 playerPosition = new Vector3(arrayOfCellsCentre[playerStartX, playerStartZ].cellXCoordinate, arrayOfCellsCentre[playerStartX, playerStartZ].cellYCoordinate,arrayOfCellsCentre[playerStartX, playerStartZ].cellZCoordinate);
         Quaternion playerRotation = new Quaternion(0,0,0,0);
         Instantiate(PlayerPrefab,playerPosition,playerRotation);
+        
     }
 
     public void placeExit()
@@ -196,11 +194,24 @@ public class BuildMaze : MonoBehaviour {
 
         placePlayer();
         placeFloor(distanceBetweenObjects, wallPrefabLength, betweenPrefabLength,wallPrefabHeight);
+        
 
+    }
+
+    public bool hasReachedEnd(Transform player, Transform exit)
+    {
+        bool areCollided = false;
+        
+
+        return areCollided;
     }
 
     // Update is called once per frame
     void Update () {
-		
+        bool isLightKeyDown = Input.GetKeyDown(KeyCode.F);
+        if(isLightKeyDown == true)
+        {
+            Debug.Log("F has been pressed");
+        }
 	}
 }
