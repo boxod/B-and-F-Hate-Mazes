@@ -77,12 +77,50 @@ public class BuildMaze : MonoBehaviour {
         Instantiate(FloorPrefab, floorPosition, floorRotation);
     }
 
+    //If <5 go for minimum else go for maximum
     public void placePlayer()
     {
-        //int columnOrRow = Random.Range(0, 11);
-
-        playerStartX = Random.Range(0,Rows-1);
-        playerStartZ = Random.Range(0,Columns-1);
+        int randomScenario = Random.Range(0, 9); ;
+        if(Rows > Columns)
+        {
+            if(randomScenario < 5)
+            {
+                
+                playerStartX = 0;
+                playerStartZ = Random.Range(0,Columns-1);
+            }
+            else
+            {
+                playerStartX = Rows-1;
+                playerStartZ = Random.Range(0, Columns - 1);
+            }
+        }
+        else if(Columns > Rows)
+        {
+            if (randomScenario < 5)
+            {
+                playerStartX = Random.Range(0, Rows - 1);
+                playerStartZ = 0;
+            }
+            else
+            {
+                playerStartX = Random.Range(0, Rows - 1);
+                playerStartZ = Columns - 1;
+            }
+        }
+        else if (Rows == Columns)
+        {
+            if (randomScenario < 5)
+            {
+                playerStartX = 0;
+                playerStartZ = Random.Range(0, Columns - 1);
+            }
+            else
+            {
+                playerStartX = Rows-1;
+                playerStartZ = Random.Range(0, Columns - 1); 
+            }
+        }
         Vector3 playerPosition = new Vector3(arrayOfCellsCentre[playerStartX, playerStartZ].cellXCoordinate, arrayOfCellsCentre[playerStartX, playerStartZ].cellYCoordinate,arrayOfCellsCentre[playerStartX, playerStartZ].cellZCoordinate);
         Quaternion playerRotation = new Quaternion(0,0,0,0);
         Instantiate(PlayerPrefab,playerPosition,playerRotation);
@@ -90,7 +128,13 @@ public class BuildMaze : MonoBehaviour {
     }
 
     public void placeExit()
-    { }
+    {
+        if(playerStartX == 0)
+        {
+
+        }
+        if()
+    }
 
     public void CreateMazeWalls()
     {

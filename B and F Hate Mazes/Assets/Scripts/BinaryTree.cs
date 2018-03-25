@@ -124,9 +124,4 @@ public class BinaryTree : MonoBehaviour {
 
     
 
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
