@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B and F Hate Mazes", "B and F Hate Mazes.csproj", "{3E7F662D-7BAD-0ADA-9BCC-BFDE95B8255F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B and F Hate Mazes.Plugins", "B and F Hate Mazes.Plugins.csproj", "{B461C9B1-E8C9-1595-6A58-4944F11F8BC2}"

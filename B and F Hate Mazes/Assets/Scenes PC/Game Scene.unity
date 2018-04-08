@@ -227,17 +227,28 @@ Prefab:
     - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
         type: 2}
       propertyPath: MinNumRows
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
         type: 2}
       propertyPath: MaxNumRows
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
         type: 2}
       propertyPath: MaxNumColumns
-      value: 18
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: ExitPrefab
+      value: 
+      objectReference: {fileID: 1264788968203908, guid: c5a798636ada02247a68e8cca03ee9e7,
+        type: 2}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MinNumColumns
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced8496b260e675498042edf8911f005, type: 2}

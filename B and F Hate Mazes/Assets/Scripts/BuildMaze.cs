@@ -25,9 +25,8 @@ public class BuildMaze : MonoBehaviour {
     private int Columns;
     private int Rows;
     private centreOfCells[,] arrayOfCellsCentre;
-    private List<LightDrop> lightDrops = new List<LightDrop>();
     private int playerStartX, playerStartZ;
-    private int exitPosX, exitPozZ;
+    private int exitPosX, exitPosZ;
     
 
 
@@ -59,7 +58,7 @@ public class BuildMaze : MonoBehaviour {
     void Start() {
         //GameObject Floor = Instantiate(Resources.Load("Floor", typeof(GameObject))) as GameObject;
 
-        Rows = Random.Range(MinNumColumns,MaxNumRows);
+        Rows = Random.Range(MinNumRows,MaxNumRows);
         Columns = Random.Range(MinNumColumns,MaxNumColumns);
 
         CreateMazeWalls();
@@ -131,13 +130,33 @@ public class BuildMaze : MonoBehaviour {
     {
         if(playerStartX == 0)
         {
-
+            exitPosX = Rows - 1;
+            exitPosZ = Random.Range(0,Columns-1);
         }
-        if()
+        if(playerStartX == Columns-1)
+        {
+            exitPosX = 0;
+            exitPosZ = Random.Range(0, Columns - 1);
+        }
+        if(playerStartZ == 0)
+        {
+            exitPosX = Random.Range(0, Rows - 1);
+            exitPosZ = Columns - 1;
+        }
+        if(playerStartZ == Rows - 1)
+        {
+            exitPosX = Random.Range(0,Rows-1);
+            exitPosZ = 0;
+        }
+        Debug.Log("Exit Position: " + exitPosZ + " - " + exitPosX);
+        Vector3 exitPositionVector = new Vector3(arrayOfCellsCentre[exitPosX,exitPosZ].cellXCoordinate, arrayOfCellsCentre[exitPosX, exitPosZ].cellYCoordinate, arrayOfCellsCentre[exitPosX, exitPosZ].cellZCoordinate);
+        Quaternion exitPrefabRotation = new Quaternion(0,0,0,0);
+        Instantiate(ExitPrefab,exitPositionVector,exitPrefabRotation);
     }
 
     public void CreateMazeWalls()
     {
+        Debug.Log("Rows: " + Rows + " Columns: " + Columns);
         createnewMaze = new BinaryTree(Rows, Columns);
         CreateCell.Cell[,] MazeArray = createnewMaze.returnBinaryArray();
         float wallPrefabLength = xWallPrefab.GetComponent<Renderer>().bounds.size.x;
@@ -238,24 +257,18 @@ public class BuildMaze : MonoBehaviour {
 
         placePlayer();
         placeFloor(distanceBetweenObjects, wallPrefabLength, betweenPrefabLength,wallPrefabHeight);
+        placeExit();
         
 
     }
 
-    public bool hasReachedEnd(Transform player, Transform exit)
-    {
-        bool areCollided = false;
+    //public bool hasReachedEnd(Transform player, Transform exit)
+    //{
+    //    bool areCollided = false;
         
 
-        return areCollided;
-    }
+    //    return areCollided;
+    //}
 
-    // Update is called once per frame
-    void Update () {
-        bool isLightKeyDown = Input.GetKeyDown(KeyCode.F);
-        if(isLightKeyDown == true)
-        {
-            Debug.Log("F has been pressed");
-        }
-	}
+
 }

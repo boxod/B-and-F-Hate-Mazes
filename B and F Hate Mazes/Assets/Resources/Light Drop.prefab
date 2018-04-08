@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136881746005408146}
   - component: {fileID: 23884128072797938}
   - component: {fileID: 108630252420150856}
+  - component: {fileID: 114136571357577596}
   m_Layer: 0
   m_Name: Light Drop
   m_TagString: Untagged
@@ -120,6 +121,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114136571357577596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228308697156200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aaed5948c04a54dae909f51177b67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 1383569770584304, guid: f27c7b06ba767774a89144cb2bfd54ba,
+    type: 2}
+  LightDropPrefab: {fileID: 1228308697156200}
+  maxNumOfDrops: 16
 --- !u!136 &136881746005408146
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -5,57 +5,36 @@ using UnityEngine;
 public class LightDrop : MonoBehaviour
 {
 
-    private GameObject PlayerPrefab;
     private GameObject LightDropPrefab;
-    private int lightDropCharges = 0;
-    private int totalLightDrops = 0;
-    private float lXCoord;
     private Transform lightDropCoordinates;
 
-    // Constructor that sets the number of drops and prefab
-    public LightDrop(GameObject playerP, GameObject lightDropP, int mazeRows, int mazeColumns)
+
+
+
+    // Constructor for lightdrop that also places them in the game as prefabs when called
+    public LightDrop(GameObject lightDropP, Transform lightDropLocation)
     {
-        PlayerPrefab = playerP;
         LightDropPrefab = lightDropP;
+        lightDropCoordinates = lightDropLocation;
+        placeLightCharge(lightDropLocation);
        
     }
 
-    public LightDrop()
-    {
-        
-    }
 
-    public void setNumberLightDrops(int mazeRows, int mazeColumns)
+    public void placeLightCharge(Transform lightDropLocation)
     {
-        totalLightDrops = (mazeRows * mazeColumns) / 3;
-    }
-    public int getNumberLightDrops()
-    {
-        return lightDropCharges;
-    }
-
-    public void placeLightCharge(float xCoordinate, float yCoordinate, float zCoordinate)
-    {
+        float xCoordinate = 0, yCoordinate = 0, zCoordinate = 0; 
         Vector3 lightPoz = new Vector3(xCoordinate, yCoordinate, zCoordinate);
         Quaternion lightRoatation = new Quaternion(0, 0, 0, 0);
         Instantiate(LightDropPrefab, lightPoz, lightRoatation);
-        LightDrop newLightDrop = new LightDrop();
-
-    }
-    public void removeLightCharge(LightDrop currentDrop)
-    {
-        Destroy(currentDrop.LightDropPrefab);
     }
 
-    public bool areSame(LightDrop currD, LightDrop checkD)
+    public void removeLightCharge()
     {
-        bool isTrue = false;
-        if (currD == checkD)
-        {
-            isTrue = true;
-        }
-        return isTrue;
+        Destroy(LightDropPrefab);
     }
+
+    
 
 }
 

@@ -5,11 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-
     public GameObject Player;
     public string LoadLevel = "End Game Scene";
 
@@ -31,11 +26,5 @@ public class EndGame : MonoBehaviour {
             SceneManager.LoadScene(LoadLevel, LoadSceneMode.Additive);
 
         }
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    } 
 }
