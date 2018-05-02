@@ -6,43 +6,59 @@ public class LightDropHolder : MonoBehaviour {
 
     public GameObject PlayerPrefab;
     public GameObject LightDropPrefab;
-    public int maxNumOfDrops = 16;
+
+    private int maxNumOfDrops = 5;
     int currentNumberofDrops = 0;
 
-    private List<LightDrop> LightDropList;
+    int testct = 0;
+    private int mazeRows = 5;
+    private int mazeColumns = 5;
+    private Transform playerLocation;
+
+    // Variables for GUI
+    public static float messageDisplayTimer;
+    public static bool dsp = false;
+   
+
+
+    public void Start ()
+    {
+
+    }
+
 
     public void addLighDrop()
     {
-        LightDrop newLightDrop = new LightDrop(LightDropPrefab, PlayerPrefab.transform);
-        LightDropList.Add(newLightDrop);
-        currentNumberofDrops++;
-    }
+        testct++;
+        Debug.Log("Was in addLight " + testct + " times");
+        //Vector3 lightPoz = PlayerPrefab.transform.position;
+        //lightPoz.y = lightPoz.y + 0.5f;
+        //Quaternion lightRoatation = new Quaternion(0, 0, 0, 0);
+        //Instantiate(LightDropPrefab, lightPoz, lightRoatation);
 
-    public void removeLightDrop(LightDrop lightDrop)
-    {
-        lightDrop.removeLightCharge();
-        LightDropList.Remove(lightDrop);
-        currentNumberofDrops--;
     }
-
 
     // Update is called once per frame
     void Update()
     {
-        bool isLightKeyDown = Input.GetKeyDown(KeyCode.F);
-       
-            if (isLightKeyDown == true)
-            {
 
-                if (currentNumberofDrops < maxNumOfDrops)
-                {
+        if (Input.GetKeyDown(KeyCode.F) == true)
+        {
+            if (currentNumberofDrops < maxNumOfDrops)
+            {
                 addLighDrop();
-                Debug.Log("Place LightDrop");
-                }
-                
+                currentNumberofDrops++;
             }
+            if (currentNumberofDrops == maxNumOfDrops)
+            {
+                if (dsp == false)
+                {
+                    messageDisplayTimer = 2;
+                }
+            }
+        }
+        
     }
 
 
-    
 }

@@ -252,6 +252,8 @@ GameObject:
   - component: {fileID: 136329474776045298}
   - component: {fileID: 95512150687029464}
   - component: {fileID: 114712879240095602}
+  - component: {fileID: 114902815476857476}
+  - component: {fileID: 114197428629909320}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1299,6 +1301,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1824340380413090, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 2}
+--- !u!114 &114197428629909320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1383569770584304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153330bf3fb893440a1ad26a8441f37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114712879240095602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1316,6 +1329,20 @@ MonoBehaviour:
   m_animator: {fileID: 95512150687029464}
   m_rigidBody: {fileID: 54588048303087784}
   m_controlMode: 0
+--- !u!114 &114902815476857476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1383569770584304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37aaed5948c04a54dae909f51177b67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 1383569770584304}
+  LightDropPrefab: {fileID: 1228308697156200, guid: 56df9cebd130587448b0f4a7541a5e04,
+    type: 2}
 --- !u!124 &124552205714913060
 Behaviour:
   m_ObjectHideFlags: 1

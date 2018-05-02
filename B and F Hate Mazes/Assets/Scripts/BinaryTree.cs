@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BinaryTree : MonoBehaviour {
+public class BinaryTree {
 
     // Use this for initialization
 
@@ -70,6 +70,8 @@ public class BinaryTree : MonoBehaviour {
         newMaze = new CreateGrid.Grid(Number_Rows,Number_Columns);
         newMaze.configureCellsArray();
         myArr =  newMaze.getCellArray();
+        //newMaze.configureCellsList();
+
 
         //Debug.Log("Maze Size: " + myArr.Length);
         for (int i = Number_Rows-1; i>=0;i--)

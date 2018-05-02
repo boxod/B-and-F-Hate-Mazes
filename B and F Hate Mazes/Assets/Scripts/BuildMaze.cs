@@ -22,6 +22,8 @@ public class BuildMaze : MonoBehaviour {
 
     }
     private BinaryTree createnewMaze;
+    private Prim createNewMazePrim;
+    private Aldous_Broder createNewMazeAB;
     private int Columns;
     private int Rows;
     private centreOfCells[,] arrayOfCellsCentre;
@@ -51,8 +53,14 @@ public class BuildMaze : MonoBehaviour {
     public float yStartingPoint = 0.0f;
    
 
-   
-
+   public int getRowsNumber()
+    {
+        return Rows;
+    }
+   public int getColumnsNumber()
+    {
+        return Columns;
+    }
 
     // Use this for initialization
     void Start() {
@@ -158,7 +166,16 @@ public class BuildMaze : MonoBehaviour {
     {
         Debug.Log("Rows: " + Rows + " Columns: " + Columns);
         createnewMaze = new BinaryTree(Rows, Columns);
-        CreateCell.Cell[,] MazeArray = createnewMaze.returnBinaryArray();
+        //CreateCell.Cell[,] MazeArray = createnewMaze.returnBinaryArray();
+
+        createNewMazeAB = new Aldous_Broder(Rows,Columns);
+        createNewMazePrim = new Prim(Rows, Columns);
+        CreateCell.Cell[,] MazeArray = createNewMazePrim.returnPrimArray();
+
+        //CreateCell.Cell[,] MazeArray = createNewMazeAB.returnAldous_BroderArray();
+
+        Quaternion spawnRotation = Quaternion.Euler(0, 90, 0);
+        //zWallPrefab.gameObject.transform.Rotate(0,90,0);
         float wallPrefabLength = xWallPrefab.GetComponent<Renderer>().bounds.size.x;
         float wallPrefabHeight = xWallPrefab.GetComponent<Renderer>().bounds.size.y;
         float betweenPrefabLength = betweenWallsPrefab.GetComponent<Renderer>().bounds.size.x;
@@ -200,7 +217,7 @@ public class BuildMaze : MonoBehaviour {
                 if (i == 0)
                 {
                     Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * i) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * j) * -1);
-                    GameObject aux = Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    GameObject aux = Instantiate(zWallPrefab, pos, spawnRotation);
                     aux.transform.parent = transform;
                 }
                 if (j == 0)
@@ -220,7 +237,7 @@ public class BuildMaze : MonoBehaviour {
                 if (i == Rows - 1)
                 {
                     Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * (i + 1)) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * j) * -1);
-                    GameObject aux = Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    GameObject aux = Instantiate(zWallPrefab, pos, spawnRotation);
                     aux.transform.parent = transform;
                 }
 
@@ -247,7 +264,7 @@ public class BuildMaze : MonoBehaviour {
                     int nSouthRow = MazeArray[i, j].getNeighbourSouth().getCellRow();
                     int nSouthColumn = MazeArray[i, j].getNeighbourSouth().getCellColumn();
                     Vector3 pos = new Vector3((xStartingPoint + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * nSouthRow) * -1, yStartingPoint + wallIsHigher, (zStartingPoint + (wallPrefabLength + betweenPrefabLength + distanceBetweenObjects) / 2 + (2 * distanceBetweenObjects + betweenPrefabLength + wallPrefabLength) * nSouthColumn) * -1);
-                    aux = Instantiate(zWallPrefab, pos, Quaternion.identity);
+                    aux = Instantiate(zWallPrefab, pos, spawnRotation);
                     aux.transform.parent = transform;
                 }
                    

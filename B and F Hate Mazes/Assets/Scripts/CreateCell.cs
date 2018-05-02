@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateCell : MonoBehaviour {
+public class CreateCell {
 
     //Cell Class
     public class Cell

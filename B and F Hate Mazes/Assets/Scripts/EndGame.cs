@@ -17,9 +17,9 @@ public class EndGame : MonoBehaviour {
 
         if (string.Compare(collision.gameObject.name,collName) == 0)
         {
-            float x = collision.gameObject.transform.position.x;
-            float y = collision.gameObject.transform.position.y;
-            float z = collision.gameObject.transform.position.z;
+            //float x = collision.gameObject.transform.position.x;
+            //float y = collision.gameObject.transform.position.y;
+            //float z = collision.gameObject.transform.position.z;
             //Debug.Log("collision x = " + x + " collision y = " + y + " collision z = " + z);
             //Application.LoadLevel(LoadLevel);
 

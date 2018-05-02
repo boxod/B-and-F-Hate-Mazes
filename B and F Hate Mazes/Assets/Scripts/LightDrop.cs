@@ -6,25 +6,28 @@ public class LightDrop : MonoBehaviour
 {
 
     private GameObject LightDropPrefab;
-    private Transform lightDropCoordinates;
+    private GameObject playerPrefab;
 
 
+    public LightDrop()
+    {
 
+    }
 
     // Constructor for lightdrop that also places them in the game as prefabs when called
-    public LightDrop(GameObject lightDropP, Transform lightDropLocation)
+    public LightDrop(GameObject lightDropP, GameObject pPrefab)
     {
         LightDropPrefab = lightDropP;
-        lightDropCoordinates = lightDropLocation;
-        placeLightCharge(lightDropLocation);
+        playerPrefab = pPrefab;
+        placeLightCharge(playerPrefab);
        
     }
 
 
-    public void placeLightCharge(Transform lightDropLocation)
+    public void placeLightCharge(GameObject pPrefab)
     {
-        float xCoordinate = 0, yCoordinate = 0, zCoordinate = 0; 
-        Vector3 lightPoz = new Vector3(xCoordinate, yCoordinate, zCoordinate);
+        Vector3 lightPoz = pPrefab.transform.position;
+        lightPoz.y = lightPoz.y + 0.5f;
         Quaternion lightRoatation = new Quaternion(0, 0, 0, 0);
         Instantiate(LightDropPrefab, lightPoz, lightRoatation);
     }

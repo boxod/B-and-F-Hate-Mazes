@@ -51,6 +51,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fa8929cfae745468029153d9bd456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalPrefab: {fileID: 0}
-  Rows: 1
-  Columns: 1
+  myMaze: 0
+  xWallPrefab: {fileID: 1592205621673630, guid: 7fe4b01105b69c444b06c2fda7d5413d,
+    type: 2}
+  zWallPrefab: {fileID: 1592205621673630, guid: 7fe4b01105b69c444b06c2fda7d5413d,
+    type: 2}
+  betweenWallsPrefab: {fileID: 0}
+  PlayerPrefab: {fileID: 0}
+  LightDropPrefab: {fileID: 0}
+  FloorPrefab: {fileID: 0}
+  ExitPrefab: {fileID: 0}
+  MinNumRows: 4
+  MaxNumRows: 8
+  MinNumColumns: 4
+  MaxNumColumns: 8
+  distanceBetweenObjects: 0.1
+  xStartingPoint: 0
+  zStartingPoint: 0
+  yStartingPoint: 0
