@@ -32,6 +32,7 @@ public class Prim {
         {
            int rActiveCell = Random.Range(0, active.Count - 1);
            int unlinkedNeighbours = 0;
+            bool hE = false, hW = false, hS = false, hN = false;
 
            //Check Eastern Neighbour
            if(newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourEast() != null)
@@ -39,6 +40,7 @@ public class Prim {
                 if(newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourEast().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
+                    hE = true;
                 }
             }
 
@@ -48,6 +50,7 @@ public class Prim {
                 if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourWest().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
+                    hW = true;
                 }
             }
 
@@ -57,6 +60,7 @@ public class Prim {
                 if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourSouth().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
+                    hN = true;
                 }
             }
 
@@ -66,6 +70,7 @@ public class Prim {
                 if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourNorth().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
+                    hS = true;
                 }
             }
 
@@ -78,7 +83,7 @@ public class Prim {
             {
                 int rNeighbour = Random.Range(0, 100);
                 // Random East Neighbour
-                if (rNeighbour < 25)
+                if (rNeighbour < 25 && hE == true)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourEast() != null)
                     {
@@ -87,7 +92,7 @@ public class Prim {
                     }
                 }
                 //Random West Neighbour
-                if (rNeighbour >= 25 && rNeighbour < 50)
+                if (rNeighbour >= 25 && rNeighbour < 50 && hW == true)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourWest() != null)
                     {
@@ -96,7 +101,7 @@ public class Prim {
                     }
                 }
                 //Random South Neighbour
-                if (rNeighbour >= 50 && rNeighbour < 75)
+                if (rNeighbour >= 50 && rNeighbour < 75 && hS == true)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourSouth() != null)
                     {
@@ -105,7 +110,7 @@ public class Prim {
                     }
                 }
                 //Random North Neighbour
-                if (rNeighbour >= 75)
+                if (rNeighbour >= 75 && hN == true)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourNorth() != null)
                     {

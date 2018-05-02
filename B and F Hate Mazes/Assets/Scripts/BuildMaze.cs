@@ -34,7 +34,7 @@ public class BuildMaze : MonoBehaviour {
 
     // Initialize all public Variables
     [SerializeField]
-    public enum MazeType { Binary, Prim, Random };
+    public enum MazeType { Binary, Prim, AldorusBroder, Random };
     public MazeType myMaze;   
     public GameObject xWallPrefab;
     public GameObject zWallPrefab;
@@ -165,14 +165,30 @@ public class BuildMaze : MonoBehaviour {
     public void CreateMazeWalls()
     {
         Debug.Log("Rows: " + Rows + " Columns: " + Columns);
-        createnewMaze = new BinaryTree(Rows, Columns);
-        //CreateCell.Cell[,] MazeArray = createnewMaze.returnBinaryArray();
 
-        createNewMazeAB = new Aldous_Broder(Rows,Columns);
-        createNewMazePrim = new Prim(Rows, Columns);
-        CreateCell.Cell[,] MazeArray = createNewMazePrim.returnPrimArray();
+        CreateCell.Cell[,] MazeArray = new CreateCell.Cell[Rows,Columns];
 
-        //CreateCell.Cell[,] MazeArray = createNewMazeAB.returnAldous_BroderArray();
+
+        if(myMaze == MazeType.Binary)
+        {
+            createnewMaze = new BinaryTree(Rows, Columns);
+            MazeArray = createnewMaze.returnBinaryArray();
+        }
+        else if (myMaze == MazeType.Prim)
+        {
+            createNewMazePrim = new Prim(Rows, Columns);
+            MazeArray = createNewMazePrim.returnPrimArray();
+        }
+        else if (myMaze == MazeType.AldorusBroder)
+        {
+            createNewMazeAB = new Aldous_Broder(Rows, Columns);
+            MazeArray = createNewMazeAB.returnAldous_BroderArray();
+
+        }
+        else if (myMaze == MazeType.Random)
+        {
+
+        }
 
         Quaternion spawnRotation = Quaternion.Euler(0, 90, 0);
         //zWallPrefab.gameObject.transform.Rotate(0,90,0);

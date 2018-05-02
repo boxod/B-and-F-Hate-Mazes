@@ -247,6 +247,11 @@ Prefab:
       propertyPath: MinNumColumns
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: myMaze
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced8496b260e675498042edf8911f005, type: 2}
   m_IsPrefabParent: 0
