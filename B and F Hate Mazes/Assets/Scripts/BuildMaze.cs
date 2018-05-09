@@ -61,6 +61,10 @@ public class BuildMaze : MonoBehaviour {
     {
         return Columns;
     }
+    public int getNumberCells()
+    {
+        return Rows * Columns;
+    }
 
     // Use this for initialization
     void Start() {
@@ -131,7 +135,7 @@ public class BuildMaze : MonoBehaviour {
         Vector3 playerPosition = new Vector3(arrayOfCellsCentre[playerStartX, playerStartZ].cellXCoordinate, arrayOfCellsCentre[playerStartX, playerStartZ].cellYCoordinate,arrayOfCellsCentre[playerStartX, playerStartZ].cellZCoordinate);
         Quaternion playerRotation = new Quaternion(0,0,0,0);
         Instantiate(PlayerPrefab,playerPosition,playerRotation);
-        
+
     }
 
     public void placeExit()
@@ -302,6 +306,6 @@ public class BuildMaze : MonoBehaviour {
 
     //    return areCollided;
     //}
-
+    
 
 }

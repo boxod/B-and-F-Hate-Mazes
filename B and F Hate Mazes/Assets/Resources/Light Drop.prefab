@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114136571357577596}
   m_Layer: 0
   m_Name: Light Drop
-  m_TagString: Untagged
+  m_TagString: LightDrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,6 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 1383569770584304, guid: f27c7b06ba767774a89144cb2bfd54ba,
     type: 2}
   LightDropPrefab: {fileID: 1228308697156200}
-  maxNumOfDrops: 16
 --- !u!136 &136881746005408146
 CapsuleCollider:
   m_ObjectHideFlags: 1

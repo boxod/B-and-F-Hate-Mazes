@@ -19,7 +19,7 @@ public class Aldous_Broder {
 
     public CreateCell.Cell[,] returnAldous_BroderArray()
     {
-        int t = 0;
+
         newMaze = new CreateGrid.Grid(Number_Rows, Number_Columns);
         newMaze.configureCellsArray();
         myArr = newMaze.getCellArray();

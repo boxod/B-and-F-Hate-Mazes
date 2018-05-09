@@ -266,9 +266,10 @@
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\CreateCell.cs" />
     <Compile Include="Assets\Scripts\CreateGrid.cs" />
+    <Compile Include="Assets\Scripts\Drop.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
-    <Compile Include="Assets\Scripts\LightDrop.cs" />
-    <Compile Include="Assets\Scripts\LightDropHolder.cs" />
+    <Compile Include="Assets\Scripts\HUDScript.cs" />
+    <Compile Include="Assets\Scripts\LightDrops.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Prim.cs" />
     <Compile Include="Assets\Scripts\ToManyLights.cs" />

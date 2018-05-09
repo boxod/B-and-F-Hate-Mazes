@@ -106,6 +106,7 @@ public class SimpleCharacterControl : MonoBehaviour {
         }
 
         m_wasGrounded = m_isGrounded;
+
     }
 
     private void TankUpdate()
@@ -189,4 +190,27 @@ public class SimpleCharacterControl : MonoBehaviour {
             m_animator.SetTrigger("Jump");
         }
     }
+
+
+
+    // Bogdan Code:
+    public HUDScript HUD;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "LightDrop")
+        {
+            Debug.Log("Light Here");
+            HUD.openMessagePanel("");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "LightDrop")
+        {
+            Debug.Log("No Light Here");
+            HUD.closeMessagePanel();
+        }
+    }
+
 }

@@ -16,7 +16,7 @@ public class ToManyLights : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        messageDisplayTimer = LightDropHolder.messageDisplayTimer;
+        //messageDisplayTimer = LightDropHolder.messageDisplayTimer;
         if (messageDisplayTimer > 0)
         {
             messageDisplayTimer -= Time.deltaTime;

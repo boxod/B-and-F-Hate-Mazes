@@ -51,20 +51,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fa8929cfae745468029153d9bd456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMaze: 0
-  xWallPrefab: {fileID: 1592205621673630, guid: 7fe4b01105b69c444b06c2fda7d5413d,
+  myMaze: 2
+  xWallPrefab: {fileID: 107460, guid: 02e13c672a7514083bab38bd97f12362, type: 2}
+  zWallPrefab: {fileID: 107460, guid: 02e13c672a7514083bab38bd97f12362, type: 2}
+  betweenWallsPrefab: {fileID: 194322, guid: f93221987e6b04aa191515ab5b9cfae2, type: 2}
+  PlayerPrefab: {fileID: 1383569770584304, guid: f27c7b06ba767774a89144cb2bfd54ba,
     type: 2}
-  zWallPrefab: {fileID: 1592205621673630, guid: 7fe4b01105b69c444b06c2fda7d5413d,
+  LightDropPrefab: {fileID: 1228308697156200, guid: 56df9cebd130587448b0f4a7541a5e04,
     type: 2}
-  betweenWallsPrefab: {fileID: 0}
-  PlayerPrefab: {fileID: 0}
-  LightDropPrefab: {fileID: 0}
-  FloorPrefab: {fileID: 0}
-  ExitPrefab: {fileID: 0}
+  FloorPrefab: {fileID: 1177265172795922, guid: cc375bb094fa0bb4a980ead6a50eb578,
+    type: 2}
+  ExitPrefab: {fileID: 1264788968203908, guid: c5a798636ada02247a68e8cca03ee9e7, type: 2}
   MinNumRows: 4
-  MaxNumRows: 8
+  MaxNumRows: 4
   MinNumColumns: 4
-  MaxNumColumns: 8
+  MaxNumColumns: 4
   distanceBetweenObjects: 0.1
   xStartingPoint: 0
   zStartingPoint: 0
