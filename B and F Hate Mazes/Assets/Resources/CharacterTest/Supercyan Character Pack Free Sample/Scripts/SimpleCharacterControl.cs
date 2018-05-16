@@ -191,26 +191,4 @@ public class SimpleCharacterControl : MonoBehaviour {
         }
     }
 
-
-
-    // Bogdan Code:
-    public HUDScript HUD;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "LightDrop")
-        {
-            Debug.Log("Light Here");
-            HUD.openMessagePanel("");
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "LightDrop")
-        {
-            Debug.Log("No Light Here");
-            HUD.closeMessagePanel();
-        }
-    }
-
 }

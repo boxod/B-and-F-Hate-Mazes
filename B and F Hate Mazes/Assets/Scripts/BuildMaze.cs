@@ -302,10 +302,10 @@ public class BuildMaze : MonoBehaviour {
     //public bool hasReachedEnd(Transform player, Transform exit)
     //{
     //    bool areCollided = false;
-        
+
 
     //    return areCollided;
     //}
-    
+
 
 }

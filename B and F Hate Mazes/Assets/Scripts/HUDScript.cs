@@ -9,7 +9,8 @@ public class HUDScript : MonoBehaviour {
 
     public GameObject MessagePanel;
     public GameObject LightDropCharges;
-
+    public GameObject NoMoreDrops;
+    
  
 
 	// Use this for initialization
@@ -19,7 +20,12 @@ public class HUDScript : MonoBehaviour {
 	
     public void openMessagePanel (string text)
     {
+        if(NoMoreDrops.active == true)
+        {
+            NoMoreDrops.SetActive(false);
+        }
         MessagePanel.SetActive(true);
+        
     }
 
     public void closeMessagePanel()
@@ -34,8 +40,16 @@ public class HUDScript : MonoBehaviour {
         
     }
 
-	// Update is called once per frame
-	void Update () {
+    public void openNoMoreDropsPanel()
+    {
+        NoMoreDrops.SetActive(true);
+        
+    }
+
+
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
