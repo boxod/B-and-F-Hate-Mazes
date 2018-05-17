@@ -15,7 +15,7 @@ public class LightDrops : MonoBehaviour {
     private bool isNearDrop = false;
     private GameObject closeDrop;
 
-    private List<GameObject> myLightDrops = new List<GameObject>();
+    //private List<GameObject> myLightDrops = new List<GameObject>();
     
     public void placeCharge()
     {
