@@ -153,6 +153,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MaxNumRows
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MaxNumColumns
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: myMaze
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MinNumRows
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114824109058965548, guid: ced8496b260e675498042edf8911f005,
+        type: 2}
+      propertyPath: MinNumColumns
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced8496b260e675498042edf8911f005, type: 2}
   m_IsPrefabParent: 0

@@ -10,8 +10,11 @@ public class LightDrops : MonoBehaviour {
     public Transform PlayerPrefab;
     public HUDScript HUD;
 
+    public AudioSource OnDrop;
+    public AudioSource OnPickup;
+
     private int currentLightDrops;
-    private int maxNumberDrops = 12;
+    private int maxNumberDrops = 8;
     private bool isNearDrop = false;
     private GameObject closeDrop;
 
@@ -40,17 +43,18 @@ public class LightDrops : MonoBehaviour {
     {
         if(closeDrop != null)
         {
+            OnPickup.Play();
             DestroyObject(closeDrop);
             currentLightDrops++;
             HUD.closeMessagePanel();
             isNearDrop = false; 
         }
-        Debug.Log("Pickup");
     }
     public void dropDrop()
     {
         if (currentLightDrops != 0)
         {
+            OnDrop.Play();
             Vector3 lPos = new Vector3(PlayerPrefab.position.x, PlayerPrefab.position.y + 0.5f, PlayerPrefab.position.z);
             ////Debug.Log("Drop: " + currentLightDrops + " pos before change: X:" + myLightDrops[currentLightDrops - 1].transform.position.x + " Y: " + myLightDrops[currentLightDrops - 1].transform.position.y + " Z: " + myLightDrops[currentLightDrops - 1].transform.position.z);
             //myLightDrops[currentLightDrops - 1].transform.position = lPos;
@@ -68,7 +72,6 @@ public class LightDrops : MonoBehaviour {
         {
             HUD.openNoMoreDropsPanel();
         }
-        Debug.Log("Drop");
     }
 
     public void Start()
@@ -85,6 +88,10 @@ public class LightDrops : MonoBehaviour {
 
     public void Update()
     {
+        if(Input.anyKey == true)
+        {
+            HUD.hideInstructions();
+        }
         HUD.updateCharges(currentLightDrops);
         if (Input.GetKeyDown(KeyCode.F))
         {

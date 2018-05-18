@@ -40,7 +40,6 @@ public class BuildMaze : MonoBehaviour {
     public GameObject zWallPrefab;
     public GameObject betweenWallsPrefab;
     public GameObject PlayerPrefab;
-    public GameObject LightDropPrefab;
     public GameObject FloorPrefab;
     public GameObject ExitPrefab;
     public int MinNumRows = 4;
@@ -191,6 +190,17 @@ public class BuildMaze : MonoBehaviour {
         }
         else if (myMaze == MazeType.Random)
         {
+            int randomMaze = Random.Range(0, 10);
+            if(randomMaze < 5)
+            {
+                createnewMaze = new BinaryTree(Rows, Columns);
+                MazeArray = createnewMaze.returnBinaryArray();
+            }
+            else if(randomMaze >= 5)
+            {
+                createNewMazeAB = new Aldous_Broder(Rows, Columns);
+                MazeArray = createNewMazeAB.returnAldous_BroderArray();
+            }
 
         }
 

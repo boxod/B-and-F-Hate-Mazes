@@ -57,8 +57,6 @@ MonoBehaviour:
   betweenWallsPrefab: {fileID: 194322, guid: f93221987e6b04aa191515ab5b9cfae2, type: 2}
   PlayerPrefab: {fileID: 1383569770584304, guid: f27c7b06ba767774a89144cb2bfd54ba,
     type: 2}
-  LightDropPrefab: {fileID: 1228308697156200, guid: 56df9cebd130587448b0f4a7541a5e04,
-    type: 2}
   FloorPrefab: {fileID: 1177265172795922, guid: cc375bb094fa0bb4a980ead6a50eb578,
     type: 2}
   ExitPrefab: {fileID: 1371178534049626, guid: 96e25cdec139ba6438d03b0c924a2c2f, type: 2}
