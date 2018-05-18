@@ -11,7 +11,7 @@ public class LightDrops : MonoBehaviour {
     public HUDScript HUD;
 
     private int currentLightDrops;
-    private int maxNumberDrops = 5;
+    private int maxNumberDrops = 12;
     private bool isNearDrop = false;
     private GameObject closeDrop;
 
@@ -19,7 +19,7 @@ public class LightDrops : MonoBehaviour {
     
     public void placeCharge()
     {
-        HUD.updateCharges(5);
+        HUD.updateCharges(maxNumberDrops);
     }
 
 	
@@ -58,8 +58,8 @@ public class LightDrops : MonoBehaviour {
 
             //myLightDrops[currentLightDrops - 1].gameObject.SetActive(true);
             //Debug.Log("Is it active: " + myLightDrops[currentLightDrops - 1].active);
-
-            Instantiate(LightDrop, lPos, PlayerPrefab.rotation);
+            Quaternion spawnRotation = Quaternion.Euler(-90, 0, 0);
+            Instantiate(LightDrop, lPos, spawnRotation);
 
 
             currentLightDrops--;

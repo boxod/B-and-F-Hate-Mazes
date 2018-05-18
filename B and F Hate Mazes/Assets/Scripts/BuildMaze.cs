@@ -163,7 +163,7 @@ public class BuildMaze : MonoBehaviour {
         Debug.Log("Exit Position: " + exitPosZ + " - " + exitPosX);
         Vector3 exitPositionVector = new Vector3(arrayOfCellsCentre[exitPosX,exitPosZ].cellXCoordinate, arrayOfCellsCentre[exitPosX, exitPosZ].cellYCoordinate, arrayOfCellsCentre[exitPosX, exitPosZ].cellZCoordinate);
         Quaternion exitPrefabRotation = new Quaternion(0,0,0,0);
-        Instantiate(ExitPrefab,exitPositionVector,exitPrefabRotation);
+        Instantiate(ExitPrefab,exitPositionVector,exitPrefabRotation);        
     }
 
     public void CreateMazeWalls()
