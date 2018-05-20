@@ -32,7 +32,7 @@ public class Prim {
         {
            int rActiveCell = Random.Range(0, active.Count - 1);
            int unlinkedNeighbours = 0;
-            bool hE = false, hW = false, hS = false, hN = false;
+           // bool hE = false, hW = false, hS = false, hN = false;
 
            //Check Eastern Neighbour
            if(newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourEast() != null)
@@ -40,7 +40,7 @@ public class Prim {
                 if(newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourEast().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
-                    hE = true;
+                    //hE = true;
                 }
             }
 
@@ -50,7 +50,7 @@ public class Prim {
                 if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourWest().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
-                    hW = true;
+                    //hW = true;
                 }
             }
 
@@ -60,7 +60,7 @@ public class Prim {
                 if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourSouth().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
-                    hN = true;
+                    //hN = true;
                 }
             }
 
@@ -70,7 +70,7 @@ public class Prim {
                 if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourNorth().getLinkedList().Count == 0)
                 {
                     unlinkedNeighbours++;
-                    hS = true;
+                    //hS = true;
                 }
             }
 

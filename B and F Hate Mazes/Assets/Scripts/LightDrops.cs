@@ -100,7 +100,7 @@ public class LightDrops : MonoBehaviour {
         }
         catch(Exception e)
         {
-            Debug.Log("No input detected");
+            Debug.Log("No input detected: " + e.Message);
         }
 
     }
