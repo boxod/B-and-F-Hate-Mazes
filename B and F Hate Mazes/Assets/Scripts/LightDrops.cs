@@ -56,15 +56,8 @@ public class LightDrops : MonoBehaviour {
         {
             OnDrop.Play();
             Vector3 lPos = new Vector3(PlayerPrefab.position.x, PlayerPrefab.position.y + 0.5f, PlayerPrefab.position.z);
-            ////Debug.Log("Drop: " + currentLightDrops + " pos before change: X:" + myLightDrops[currentLightDrops - 1].transform.position.x + " Y: " + myLightDrops[currentLightDrops - 1].transform.position.y + " Z: " + myLightDrops[currentLightDrops - 1].transform.position.z);
-            //myLightDrops[currentLightDrops - 1].transform.position = lPos;
-
-
-            //myLightDrops[currentLightDrops - 1].gameObject.SetActive(true);
-            //Debug.Log("Is it active: " + myLightDrops[currentLightDrops - 1].active);
             Quaternion spawnRotation = Quaternion.Euler(-90, 0, 0);
             Instantiate(LightDrop, lPos, spawnRotation);
-
 
             currentLightDrops--;
         }
@@ -97,6 +90,17 @@ public class LightDrops : MonoBehaviour {
         {
             //Debug.Log("Drop F");
             DropEvent();
+        }
+        try
+        {
+            if (Input.GetButtonDown("A_Button"))
+            {
+                DropEvent();
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log("No input detected");
         }
 
     }

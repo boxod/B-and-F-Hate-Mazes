@@ -15,6 +15,7 @@ public class SimpleCharacterControl : MonoBehaviour {
     [SerializeField] private float m_jumpForce = 4;
     [SerializeField] private Animator m_animator;
     [SerializeField] private Rigidbody m_rigidBody;
+    public AudioSource Footsteps;
 
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
@@ -111,7 +112,7 @@ public class SimpleCharacterControl : MonoBehaviour {
     }
 
     private void TankUpdate()
-    {
+    {       
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
@@ -130,7 +131,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
         transform.position += transform.forward * m_currentV * m_moveSpeed * Time.deltaTime;
         transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
-        
+        //Debug.Log("Play"); Footsteps.Play();
         m_animator.SetFloat("MoveSpeed", m_currentV);
         JumpingAndLanding();
     }

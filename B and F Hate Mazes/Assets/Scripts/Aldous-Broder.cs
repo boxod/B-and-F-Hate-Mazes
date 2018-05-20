@@ -5,10 +5,7 @@ using UnityEngine;
 public class Aldous_Broder: Grid {
 
     // Use this for initialization
-    //private int Number_Rows;
-    //private int Number_Columns;
     Grid newMaze;
-    //Cell[,] myArr;
 
 
     public Aldous_Broder(int nRows, int nColumns)
