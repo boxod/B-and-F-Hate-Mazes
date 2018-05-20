@@ -2,32 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BinaryTree {
+public class BinaryTree: Grid{
 
     // Use this for initialization
+    Grid newMaze;
 
-    private int Number_Rows;
-    private int Number_Columns;
-    CreateGrid.Grid newMaze;
-    CreateCell.Cell[,] myArr;
-
+    //Constructor that takes in number of rows and columns
     public BinaryTree(int nRows, int nColumns)
     {
         Number_Rows = nRows;
         Number_Columns = nColumns;
     }
 
-    // Load Binary tree algorithm using a List
-    public void returnBinaryList ()
+    // Load Binary tree algorithm and return a List
+    public List<Cell> returnBinaryList ()
     {
         newMaze.createGrid();
         newMaze.configureCellsList();
         
 
         int size = newMaze.getCellsList().Count;
-        Debug.Log("Random please: " + size);
 
-        foreach (CreateCell.Cell i in newMaze.getCellsList())
+        foreach (Cell i in newMaze.getCellsList())
         {
             int rndm = Random.Range(0, 10);
             if (rndm < 5 && i.getNeighbourNorth() != null)
@@ -46,30 +42,32 @@ public class BinaryTree {
             {
                 i.linkCell(i, i.getNeighbourNorth(), true);
             }
-            Debug.Log("Random ");
         }
-        int ct = 0;
-        foreach (CreateCell.Cell i in newMaze.getCellsList())
-        {
-            Debug.Log("Cell " + ct + " Row: " + i.getCellRow() + " Column: " + i.getCellColumn());
-            List<CreateCell.Cell> linkedCells = i.getLinkedList();
-            int ct1 = 0;
-            foreach (CreateCell.Cell j in linkedCells)
-            {
-                Debug.Log("Linked Cell " + ct1 + " Row: " + j.getCellRow() + " Column: " + j.getCellColumn());
-                ct1++;
-            }
+        //int ct = 0;
+        //foreach (Cell i in newMaze.getCellsList())
+        //{
+        //    Debug.Log("Cell " + ct + " Row: " + i.getCellRow() + " Column: " + i.getCellColumn());
+        //    List<Cell> linkedCells = i.getLinkedList();
+        //    int ct1 = 0;
+        //    foreach (Cell j in linkedCells)
+        //    {
+        //        Debug.Log("Linked Cell " + ct1 + " Row: " + j.getCellRow() + " Column: " + j.getCellColumn());
+        //        ct1++;
+        //    }
 
-            ct++;
-        }
+        //    ct++;
+        //}
+
+        return cellList;
     }
 
-    public CreateCell.Cell[,] returnBinaryArray()
+    // Load Binary Tree algorithm and return an Array
+    public Cell[,] returnBinaryArray()
     {
 
-        newMaze = new CreateGrid.Grid(Number_Rows,Number_Columns);
+        newMaze = new Grid(Number_Rows,Number_Columns);
         newMaze.configureCellsArray();
-        myArr =  newMaze.getCellArray();
+        cellArray =  newMaze.getCellArray();
         //newMaze.configureCellsList();
 
 
@@ -108,19 +106,9 @@ public class BinaryTree {
             }
         }
 
-        //for (int i = Number_Rows - 1; i >= 0; i--)
-        //{
-        //    for (int j = 0; j < Number_Columns; j++)
-        //    {
-        //        Debug.Log("CC Row: " + newMaze.getCellFromArray(i, j).getCellRow() + " Column: " + newMaze.getCellFromArray(i, j).getCellColumn());
-        //        foreach (CreateCell.Cell c in newMaze.getCellFromArray(i, j).getLinkedList())
-        //        {
-        //            Debug.Log("Linked Cell: Row: " + c.getCellRow() + " Column: " + c.getCellColumn());
-        //        }
-        //    }
-        //}
+       // printCellsInConsole();
 
-        return myArr;
+        return cellArray;
 
     }
 

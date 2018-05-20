@@ -3830,7 +3830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 4
-  m_turnSpeed: 250
+  m_turnSpeed: 175
   m_jumpForce: 0
   m_animator: {fileID: 95512150687029464}
   m_rigidBody: {fileID: 54588048303087784}

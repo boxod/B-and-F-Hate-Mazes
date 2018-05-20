@@ -264,11 +264,11 @@
     <Compile Include="Assets\Scripts\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\BuildMaze.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
-    <Compile Include="Assets\Scripts\CreateCell.cs" />
-    <Compile Include="Assets\Scripts\CreateGrid.cs" />
+    <Compile Include="Assets\Scripts\Cell.cs" />
     <Compile Include="Assets\Scripts\Drop.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
     <Compile Include="Assets\Scripts\EndGameMenu.cs" />
+    <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\HUDScript.cs" />
     <Compile Include="Assets\Scripts\LightDrops.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

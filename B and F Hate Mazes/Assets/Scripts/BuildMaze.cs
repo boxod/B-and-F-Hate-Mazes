@@ -169,7 +169,7 @@ public class BuildMaze : MonoBehaviour {
     {
         Debug.Log("Rows: " + Rows + " Columns: " + Columns);
 
-        CreateCell.Cell[,] MazeArray = new CreateCell.Cell[Rows,Columns];
+        Cell[,] MazeArray = new Cell[Rows,Columns];
 
 
         if(myMaze == MazeType.Binary)
@@ -308,14 +308,6 @@ public class BuildMaze : MonoBehaviour {
         
 
     }
-
-    //public bool hasReachedEnd(Transform player, Transform exit)
-    //{
-    //    bool areCollided = false;
-
-
-    //    return areCollided;
-    //}
 
 
 }

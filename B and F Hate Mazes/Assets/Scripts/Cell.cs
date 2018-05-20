@@ -1,12 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateCell {
+public class Cell {
 
-    //Cell Class
-    public class Cell
-    {
+
         private int cell_Row;
         private int cell_Column;
         private Cell neighbour_North;
@@ -126,6 +125,8 @@ public class CreateCell {
             }
         }  
 
+        //Check if Cell c is linked t current Cell
+        // returns true if yes
         public bool isLinked(Cell C)
         {
             bool link = false;
@@ -146,4 +147,4 @@ public class CreateCell {
     }
     
 
-}
+

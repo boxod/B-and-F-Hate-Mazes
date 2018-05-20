@@ -3,25 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateGrid  {
 
-    //Grid Class inherits Cell Class
-    public class Grid : CreateCell
+    public class Grid 
     {
-        List<Cell> cellList = new List<Cell>();
-        private int number_Rows;
-        private int number_Columns;
-        Cell[,] cellArray;
+        //Grid attributes
+        protected List<Cell> cellList = new List<Cell>();
+        protected int Number_Rows;
+        protected int Number_Columns;
+        protected Cell[,] cellArray;
 
-
+        //Empty constructor
         public Grid()
         {
 
         }
+
+        //Constructor taking in number of rows and columns
         public Grid(int nRows, int nColumns)
         {
-            number_Rows = nRows;
-            number_Columns = nColumns;
+            Number_Rows = nRows;
+            Number_Columns = nColumns;
             cellArray = new Cell[nRows, nColumns];
             createGrid();
             //configureCellsList();
@@ -29,15 +30,17 @@ public class CreateGrid  {
 
         }
 
+        //return list of cells;
         public List<Cell> getCellsList()
         {
             return cellList;
         }
 
+        //convert array of cells to list of cells
         public Cell[,] convertListToArray(List<Cell> cellsList)
         {
             
-            Cell[,] myCellArray = new Cell[number_Rows,number_Columns];
+            Cell[,] myCellArray = new Cell[Number_Rows,Number_Columns];
             try
             {
                 foreach (Cell i in cellsList)
@@ -51,12 +54,14 @@ public class CreateGrid  {
             }
             return myCellArray;
         }
-
+        
+        // return array of cells
         public Cell[,] getCellArray()
         {
             return cellArray;
         }
 
+        //Returns a cell from the cellArray based on the selected row and collumn
         public Cell getCellFromArray(int cRow, int cColumn)
         {
             Cell rCell = cellArray[cRow,cColumn];
@@ -86,10 +91,11 @@ public class CreateGrid  {
             return rCell;
         }
 
+        //fill the grid with cells
         public void createGrid()
         {
-            for(int i = 0;i<number_Rows;i++)
-                for(int j = 0;j<number_Columns;j++)
+            for(int i = 0;i<Number_Rows;i++)
+                for(int j = 0;j<Number_Columns;j++)
                 {
                     Cell newCell = new Cell(i,j);
                     cellArray[i, j] = newCell;
@@ -97,6 +103,7 @@ public class CreateGrid  {
                 }
         }
 
+        //configure cells from the list by setting their neighbours
         public void configureCellsList ()
         {
             foreach(Cell i in cellList)
@@ -118,7 +125,7 @@ public class CreateGrid  {
                     }
 
                     //Set Neighbour South
-                    if (i.getCellRow() != number_Rows - 1)
+                    if (i.getCellRow() != Number_Rows - 1)
                     {
                         if (j.getCellColumn() == i.getCellColumn() && j.getCellRow() + 1 == i.getCellRow())
                         {
@@ -144,7 +151,7 @@ public class CreateGrid  {
                     }
 
                     //SetNeighbour West
-                    if (i.getCellColumn() != number_Columns - 1)
+                    if (i.getCellColumn() != Number_Columns - 1)
                     {
                         if (j.getCellRow() == i.getCellRow() && j.getCellColumn() - 1 == i.getCellColumn())
                         {
@@ -159,11 +166,12 @@ public class CreateGrid  {
             }
         }
 
+        //configure cells from array by setting their neighbours
         public void configureCellsArray()
         {
-            for(int i = 0; i<number_Rows;i++)
+            for(int i = 0; i<Number_Rows;i++)
             {
-                for(int j = 0;j<number_Columns; j++)
+                for(int j = 0;j<Number_Columns; j++)
                 {
                     // Set Neighbour North
                     if (i != 0)
@@ -176,11 +184,11 @@ public class CreateGrid  {
                     }
                     
                     // Set Neighbour South
-                    if(i != number_Rows - 1)
+                    if(i != Number_Rows - 1)
                     {
                         cellArray[i, j].setneighbourSouth(cellArray[i + 1, j]);
                     }
-                    if(i == number_Rows - 1)
+                    if(i == Number_Rows - 1)
                     {
                         cellArray[i, j].setneighbourSouth(null);
                     }
@@ -196,26 +204,35 @@ public class CreateGrid  {
                     }
 
                     //Set Neighbour East
-                    if(j != number_Columns -1)
+                    if(j != Number_Columns -1)
                     {
                         cellArray[i, j].setneighbourEast(cellArray[i,j+1]);
                     }
-                    if(j == number_Columns - 1)
+                    if(j == Number_Columns - 1)
                     {
                         cellArray[i, j].setneighbourEast(null);
                     }
                 }
             }
         }
+
+        //Used for debuging generation algorithms
+        //This method shows each cells column and row together with the columns and rows of all connected cells
+        public void printCellsInConsole()
+        {
+
+        for (int i = Number_Rows - 1; i >= 0; i--)
+        {
+            for (int j = 0; j < Number_Columns; j++)
+            {
+                Debug.Log("CC Row: " + getCellFromArray(i, j).getCellRow() + " Column: " + getCellFromArray(i, j).getCellColumn());
+                foreach (Cell c in getCellFromArray(i, j).getLinkedList())
+                {
+                    Debug.Log("Linked Cell: Row: " + c.getCellRow() + " Column: " + c.getCellColumn());
+                }
+            }
+        }
     }
+}
     
 
-
-
-
-    //public Material Floor_Material;
-    //public int Maze_width;
-    //public int Maze_length;
-
-
-}

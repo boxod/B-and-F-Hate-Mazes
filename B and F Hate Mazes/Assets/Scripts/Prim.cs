@@ -6,9 +6,9 @@ public class Prim {
 
     private int Number_Rows;
     private int Number_Columns;
-    CreateGrid.Grid newMaze;
-    CreateCell.Cell[,] myArr;
-    List<CreateCell.Cell> myList;
+    Grid newMaze;
+    Cell[,] myArr;
+    List<Cell> myList;
 	
     public Prim(int Rows, int Columns)
     {
@@ -16,13 +16,13 @@ public class Prim {
         Number_Columns = Columns;
     }
 
-    public CreateCell.Cell[,] returnPrimArray()
+    public Cell[,] returnPrimArray()
     {
-        newMaze = new CreateGrid.Grid(Number_Rows, Number_Columns);
+        newMaze = new Grid(Number_Rows, Number_Columns);
         newMaze.configureCellsArray();
         myArr = newMaze.getCellArray();
 
-        List<CreateCell.Cell> active = new List<CreateCell.Cell>();
+        List<Cell> active = new List<Cell>();
         int rRow = Random.Range(0,Number_Rows-1);
         int rColumn = Random.Range(0,Number_Columns-1);
 
@@ -83,7 +83,7 @@ public class Prim {
             {
                 int rNeighbour = Random.Range(0, 100);
                 // Random East Neighbour
-                if (rNeighbour < 25 && hE == true)
+                if (rNeighbour < 25)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourEast() != null)
                     {
@@ -92,7 +92,7 @@ public class Prim {
                     }
                 }
                 //Random West Neighbour
-                if (rNeighbour >= 25 && rNeighbour < 50 && hW == true)
+                if (rNeighbour >= 25 && rNeighbour < 50)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourWest() != null)
                     {
@@ -101,7 +101,7 @@ public class Prim {
                     }
                 }
                 //Random South Neighbour
-                if (rNeighbour >= 50 && rNeighbour < 75 && hS == true)
+                if (rNeighbour >= 50 && rNeighbour < 75)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourSouth() != null)
                     {
@@ -110,7 +110,7 @@ public class Prim {
                     }
                 }
                 //Random North Neighbour
-                if (rNeighbour >= 75 && hN == true)
+                if (rNeighbour >= 75)
                 {
                     if (newMaze.getCellFromArray(active[rActiveCell].getCellRow(), active[rActiveCell].getCellColumn()).getNeighbourNorth() != null)
                     {
